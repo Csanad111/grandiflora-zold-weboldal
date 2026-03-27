@@ -19,7 +19,7 @@ export function Header() {
           <img 
             src={logoIcon} 
             alt="Grandiflora Logo" 
-            className="w-16 h-16 sm:w-20 sm:h-20 object-contain brightness-0 invert opacity-90"
+            className="w-20 h-20 sm:w-28 sm:h-28 object-contain brightness-0 invert opacity-90"
           />
           <h1 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-2xl sm:text-3xl tracking-wide">
             GRANDIFLORA

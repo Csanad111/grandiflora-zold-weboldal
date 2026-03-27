@@ -3,22 +3,41 @@ import { motion, AnimatePresence } from "motion/react";
 import { LiquidGlassCard } from "./LiquidGlassCard";
 import { CheckCircle, Mail, Phone, Instagram } from "lucide-react";
 
+const SERVICES = [
+  "Kertépítés",
+  "Kerttervezés",
+  "Faápolás",
+  "Öntözéstechnika",
+  "Ágdarálás",
+  "Kertfenntartás"
+];
+
 export function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
     email: ""
   });
+  const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const toggleService = (service: string) => {
+    setSelectedServices(prev => 
+      prev.includes(service) 
+        ? prev.filter(s => s !== service) 
+        : [...prev, service]
+    );
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    console.log("Form submitted:", { ...formData, selectedServices });
     setIsSubmitted(true);
     
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({ name: "", phone: "", email: "" });
+      setSelectedServices([]);
     }, 3000);
   };
 
@@ -90,7 +109,28 @@ export function ContactForm() {
                   <p className="text-[#DCF0DC]/60 text-sm">Töltse ki az űrlapot, és 24 órán belül visszahívjuk!</p>
                 </div>
                 
-                <form onSubmit={handleSubmit} className="space-y-5">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Service Selection */}
+                  <div>
+                    <p className="text-[#DCF0DC] font-medium mb-4 text-sm sm:text-base">Melyik szolgáltatásunk érdekli?</p>
+                    <div className="flex flex-wrap gap-2 sm:gap-3">
+                      {SERVICES.map((service) => (
+                        <button
+                          key={service}
+                          type="button"
+                          onClick={() => toggleService(service)}
+                          className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm transition-all border ${
+                            selectedServices.includes(service)
+                              ? "bg-[#DCF0DC] text-[#132a18] border-[#DCF0DC]"
+                              : "bg-white/5 text-[#DCF0DC]/70 border-white/10 hover:border-white/30"
+                          }`}
+                        >
+                          {service}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* Name Field */}
                   <div>
                     <label htmlFor="name" className="block text-[#DCF0DC] font-medium mb-2 text-sm sm:text-base">
@@ -184,6 +224,10 @@ export function ContactForm() {
           </motion.div>
         )}
       </AnimatePresence>
+    </section>
+  );
+}
+ePresence>
     </section>
   );
 }
