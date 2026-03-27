@@ -12,7 +12,7 @@ export function Footer() {
               <img 
                 src={logoIcon} 
                 alt="Grandiflora Logo" 
-                className="w-10 h-10 object-contain brightness-0 invert opacity-80"
+                className="w-24 h-24 sm:w-36 sm:h-36 object-contain brightness-0 invert opacity-90"
               />
               <h3 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-2xl sm:text-3xl">
                 GRANDIFLORA

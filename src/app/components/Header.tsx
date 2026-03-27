@@ -13,13 +13,13 @@ import { motion } from "motion/react";
 export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[#132a18]/90 shadow-lg border-b border-white/10">
-      <div className="w-full px-4 sm:px-8 py-4 sm:py-5 flex items-center justify-between">
+      <div className="w-full px-4 sm:px-8 py-2 sm:py-3 flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-3">
           <img 
             src={logoIcon} 
             alt="Grandiflora Logo" 
-            className="w-20 h-20 sm:w-28 sm:h-28 object-contain brightness-0 invert opacity-90"
+            className="w-24 h-24 sm:w-36 sm:h-36 object-contain brightness-0 invert opacity-90"
           />
           <h1 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-2xl sm:text-3xl tracking-wide">
             GRANDIFLORA
