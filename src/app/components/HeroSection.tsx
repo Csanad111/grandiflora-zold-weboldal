@@ -35,7 +35,7 @@ export function HeroSection({ onCtaClick }: HeroSectionProps) {
           />
           
           {/* Tagline */}
-          <h1 className="font-['DM_Serif_Display'] text-[#5e6e5e] text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight max-w-4xl">
+          <h1 className="font-['DM_Serif_Display'] text-[#eae5d9] text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight max-w-4xl">
             Egyedi kertek szakértőktől –<br className="hidden sm:block" /> tervezéstől gondozásig.
           </h1>
         </motion.div>
@@ -47,7 +47,7 @@ export function HeroSection({ onCtaClick }: HeroSectionProps) {
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="mt-12 bg-[#5e6e5e] hover:bg-[#758a76] text-white px-8 sm:px-12 py-4 sm:py-5 rounded-[20px] font-['DM_Serif_Display'] text-lg sm:text-xl shadow-2xl transition-all duration-300 inline-flex items-center gap-3"
+          className="mt-12 bg-[#eae5d9] hover:bg-white text-[#132a18] px-8 sm:px-12 py-4 sm:py-5 rounded-[20px] font-['DM_Serif_Display'] text-lg sm:text-xl shadow-2xl transition-all duration-300 inline-flex items-center gap-3"
         >
           Kérjen ingyenes felmérést!
           <ArrowDown size={24} className="animate-bounce" />
@@ -61,7 +61,7 @@ export function HeroSection({ onCtaClick }: HeroSectionProps) {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
       >
-        <div className="w-[1px] h-16 bg-gradient-to-b from-[#5e6e5e]/50 to-transparent" />
+        <div className="w-[1px] h-16 bg-gradient-to-b from-[#eae5d9]/50 to-transparent" />
       </motion.div>
     </section>
   );

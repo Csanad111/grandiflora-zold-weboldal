@@ -13,7 +13,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-transparent via-white/60 to-white">
+    <div className="min-h-screen bg-[#132a18] text-[#eae5d9]">
       <Header />
       <main>
         <HeroSection onCtaClick={scrollToForm} />
