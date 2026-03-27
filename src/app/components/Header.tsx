@@ -12,7 +12,7 @@ import { motion } from "motion/react";
 
 export function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[#0a1a0e]/90 shadow-lg border-b border-white/10">
+    <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[#132a18]/90 shadow-lg border-b border-white/10">
       <div className="w-full px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between">
         {/* Logo & Brand - Clickable to top */}
         <button 
@@ -56,7 +56,7 @@ export function Header() {
                   GRANDIFLORA
                 </h2>
               </div>
-              <div className="flex flex-col p-8 gap-6 bg-[#0a1a0e]">
+              <div className="flex flex-col p-8 gap-6">
                 {["SZOLGÁLTATÁSOK", "REFERENCIA", "KAPCSOLAT"].map((item) => (
                   <SheetClose asChild key={item}>
                     <a

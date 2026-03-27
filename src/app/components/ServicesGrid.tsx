@@ -54,7 +54,7 @@ interface ServicesGridProps {
 
 export function ServicesGrid({ onServiceClick }: ServicesGridProps) {
   return (
-    <section id="services" className="py-16 sm:py-24 px-4 sm:px-6 bg-[#0a1a0e] scroll-mt-24">
+    <section id="services" className="py-16 sm:py-24 px-4 sm:px-6 bg-[#132a18] scroll-mt-24">
       <div className="container mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
