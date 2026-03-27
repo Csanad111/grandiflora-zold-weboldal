@@ -13,18 +13,23 @@ import { motion } from "motion/react";
 export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-[#132a18]/90 shadow-lg border-b border-white/10">
-      <div className="w-full px-4 sm:px-8 py-2 sm:py-3 flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center gap-3">
-          <img 
-            src={logoIcon} 
-            alt="Grandiflora Logo" 
-            className="w-24 h-24 sm:w-36 sm:h-36 object-contain brightness-0 invert opacity-90"
-          />
-          <h1 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-2xl sm:text-3xl tracking-wide">
+      <div className="w-full px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between">
+        {/* Logo & Brand - Clickable to top */}
+        <button 
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="flex items-center gap-3 group cursor-pointer focus:outline-none"
+        >
+          <div className="relative">
+            <img 
+              src={logoIcon} 
+              alt="Grandiflora Logo" 
+              className="w-20 h-20 sm:w-28 sm:h-28 object-contain brightness-0 invert opacity-90 transition-transform group-hover:scale-105"
+            />
+          </div>
+          <h1 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-xl sm:text-2xl tracking-wide group-hover:text-white transition-colors">
             GRANDIFLORA
           </h1>
-        </div>
+        </button>
 
         {/* Action Area (Hamburger only) */}
         <div className="flex items-center gap-4">
