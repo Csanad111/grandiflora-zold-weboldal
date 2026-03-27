@@ -45,12 +45,17 @@ export function Header() {
                 />
               </button>
             </SheetTrigger>
-            <SheetContent side="right" className="bg-[#132a18] border-l border-white/10 p-0 w-full sm:max-w-sm">
-              <SheetHeader className="p-8 border-b border-white/5">
-                <SheetTitle className="text-[#DCF0DC] font-['DM_Serif_Display'] text-2xl tracking-widest">
+            <SheetContent side="right" className="bg-[#132a18] border-l border-white/10 p-0 w-full sm:max-w-md">
+              <div className="px-4 sm:px-8 h-16 sm:h-20 flex items-center gap-3 border-b border-white/5">
+                <img 
+                  src={logoIcon} 
+                  alt="Grandiflora Logo" 
+                  className="w-16 h-16 sm:w-20 sm:h-20 object-contain brightness-0 invert opacity-90"
+                />
+                <h2 className="text-[#DCF0DC] font-['DM_Serif_Display'] text-xl sm:text-2xl tracking-wide">
                   GRANDIFLORA
-                </SheetTitle>
-              </SheetHeader>
+                </h2>
+              </div>
               <div className="flex flex-col p-8 gap-6">
                 {["SZOLGÁLTATÁSOK", "REFERENCIA", "KAPCSOLAT"].map((item) => (
                   <SheetClose asChild key={item}>
