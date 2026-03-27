@@ -3,7 +3,7 @@ import logoIcon from "@/assets/logo_new.png";
 
 export function Footer() {
   return (
-    <footer className="bg-[#061108] text-[#DCF0DC] py-12 sm:py-16 px-4 sm:px-6">
+    <footer className="bg-[#031408] text-[#DCF0DC] py-12 sm:py-16 px-4 sm:px-6">
       <div className="container mx-auto max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
           {/* Logo & Description */}
