@@ -1,7 +1,6 @@
 import { motion } from "motion/react";
 import { ArrowDown } from "lucide-react";
 import heroImage from "@/assets/hero_bg_flower.jpg";
-import flowerIcon from "figma:asset/059c293333deaf670cb9e3e54dcb31770524a2e7.png";
 
 interface HeroSectionProps {
   onCtaClick: () => void;
@@ -9,34 +8,29 @@ interface HeroSectionProps {
 
 export function HeroSection({ onCtaClick }: HeroSectionProps) {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+    <section className="relative min-h-screen flex items-center justify-start overflow-hidden">
+      {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <img
           src={heroImage}
           alt="Luxury Garden Design"
           className="w-full h-full object-cover"
         />
+        {/* Dark gradient overlay on the left to make text readable */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a1a0e]/95 via-[#0a1a0e]/60 to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-24 pb-12">
+      <div className="relative z-10 px-6 sm:px-12 md:px-20 w-full pt-32 pb-12">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col items-center"
+          className="flex flex-col items-start max-w-2xl"
         >
-          {/* Flower Icon */}
-          <img
-            src={flowerIcon}
-            alt="Grandiflora"
-            className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mb-8 md:mb-10"
-          />
-          
           {/* Tagline */}
-          <h1 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight max-w-4xl">
-            Egyedi kertek szakértőktől –<br className="hidden sm:block" /> tervezéstől gondozásig.
+          <h1 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.15] text-left drop-shadow-lg">
+            Egyedi kertek szakértőktől –<br /> tervezéstől gondozásig.
           </h1>
         </motion.div>
 
@@ -56,12 +50,12 @@ export function HeroSection({ onCtaClick }: HeroSectionProps) {
 
       {/* Scroll Indicator */}
       <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-10 left-12 sm:left-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
       >
-        <div className="w-[1px] h-16 bg-gradient-to-b from-[#DCF0DC]/50 to-transparent" />
+        <div className="w-[2px] h-20 bg-gradient-to-b from-[#DCF0DC]/70 to-transparent" />
       </motion.div>
     </section>
   );
