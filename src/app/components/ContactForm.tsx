@@ -60,7 +60,7 @@ export function ContactForm() {
   };
 
   return (
-    <section id="contact-form" className="py-20 sm:py-32 px-4 sm:px-6 bg-[#0a1a0e] overflow-hidden">
+    <section id="contact-form" className="py-20 sm:py-32 px-4 sm:px-6 bg-[#0a1a0e] overflow-hidden scroll-mt-24">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
