@@ -41,10 +41,10 @@ export function ContactForm() {
           transition={{ duration: 0.6 }}
           className="text-center mb-8 sm:mb-12"
         >
-          <h2 className="font-['DM_Serif_Display'] text-[#eae5d9] text-4xl sm:text-5xl mb-4">
+          <h2 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-4xl sm:text-5xl mb-4">
             Ingyenes Felmérés
           </h2>
-          <p className="text-[#eae5d9]/80 text-base sm:text-lg px-4">
+          <p className="text-[#DCF0DC]/80 text-base sm:text-lg px-4">
             Töltse ki az űrlapot, és munkatársunk 24 órán belül felveszi Önnel a kapcsolatot!
           </p>
         </motion.div>
@@ -62,7 +62,7 @@ export function ContactForm() {
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-[#eae5d9] font-medium mb-2 text-sm sm:text-base"
+                    className="block text-[#DCF0DC] font-medium mb-2 text-sm sm:text-base"
                   >
                     Név
                   </label>
@@ -73,7 +73,7 @@ export function ContactForm() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-[16px] bg-[#132a18]/50 border border-white/20 backdrop-blur-md text-[#eae5d9] placeholder-[#eae5d9]/40 focus:outline-none focus:ring-2 focus:ring-[#eae5d9] focus:border-transparent transition-all text-sm sm:text-base"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-[16px] bg-[#132a18]/50 border border-white/20 backdrop-blur-md text-[#DCF0DC] placeholder-[#DCF0DC]/40 focus:outline-none focus:ring-2 focus:ring-[#DCF0DC] focus:border-transparent transition-all text-sm sm:text-base"
                     placeholder="Teljes név"
                   />
                 </div>
@@ -82,7 +82,7 @@ export function ContactForm() {
                 <div>
                   <label
                     htmlFor="phone"
-                    className="block text-[#eae5d9] font-medium mb-2 text-sm sm:text-base"
+                    className="block text-[#DCF0DC] font-medium mb-2 text-sm sm:text-base"
                   >
                     Telefonszám
                   </label>
@@ -93,7 +93,7 @@ export function ContactForm() {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-[16px] bg-[#132a18]/50 border border-white/20 backdrop-blur-md text-[#eae5d9] placeholder-[#eae5d9]/40 focus:outline-none focus:ring-2 focus:ring-[#eae5d9] focus:border-transparent transition-all text-sm sm:text-base"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-[16px] bg-[#132a18]/50 border border-white/20 backdrop-blur-md text-[#DCF0DC] placeholder-[#DCF0DC]/40 focus:outline-none focus:ring-2 focus:ring-[#DCF0DC] focus:border-transparent transition-all text-sm sm:text-base"
                     placeholder="+36 20 123 4567"
                   />
                 </div>
@@ -102,7 +102,7 @@ export function ContactForm() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-[#eae5d9] font-medium mb-2 text-sm sm:text-base"
+                    className="block text-[#DCF0DC] font-medium mb-2 text-sm sm:text-base"
                   >
                     E-mail
                   </label>
@@ -113,7 +113,7 @@ export function ContactForm() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-[16px] bg-[#132a18]/50 border border-white/20 backdrop-blur-md text-[#eae5d9] placeholder-[#eae5d9]/40 focus:outline-none focus:ring-2 focus:ring-[#eae5d9] focus:border-transparent transition-all text-sm sm:text-base"
+                    className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-[16px] bg-[#132a18]/50 border border-white/20 backdrop-blur-md text-[#DCF0DC] placeholder-[#DCF0DC]/40 focus:outline-none focus:ring-2 focus:ring-[#DCF0DC] focus:border-transparent transition-all text-sm sm:text-base"
                     placeholder="email@example.com"
                   />
                 </div>
@@ -123,7 +123,7 @@ export function ContactForm() {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-[#eae5d9] hover:bg-white text-[#132a18] px-6 sm:px-8 py-4 sm:py-5 rounded-[20px] font-['DM_Serif_Display'] text-lg sm:text-xl shadow-lg transition-all duration-300"
+                  className="w-full bg-[#DCF0DC] hover:bg-white text-[#132a18] px-6 sm:px-8 py-4 sm:py-5 rounded-[20px] font-['DM_Serif_Display'] text-lg sm:text-xl shadow-lg transition-all duration-300"
                 >
                   Időpontot foglalok
                 </motion.button>
@@ -147,11 +147,11 @@ export function ContactForm() {
                 exit={{ scale: 0.8, opacity: 0 }}
                 className="bg-[#132a18] border border-white/10 p-8 sm:p-12 rounded-[24px] shadow-2xl max-w-md text-center w-full"
               >
-                <CheckCircle size={64} className="text-[#eae5d9] mx-auto mb-4" />
-                <h3 className="font-['DM_Serif_Display'] text-[#eae5d9] text-2xl sm:text-3xl mb-3">
+                <CheckCircle size={64} className="text-[#DCF0DC] mx-auto mb-4" />
+                <h3 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-2xl sm:text-3xl mb-3">
                   Köszönjük!
                 </h3>
-                <p className="text-[#eae5d9]/80 text-base sm:text-lg">
+                <p className="text-[#DCF0DC]/80 text-base sm:text-lg">
                   Jelentkezését fogadtuk. Hamarosan felvesszük Önnel a kapcsolatot!
                 </p>
               </motion.div>
