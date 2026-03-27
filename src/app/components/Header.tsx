@@ -23,7 +23,7 @@ export function Header() {
             <img 
               src={logoIcon} 
               alt="Grandiflora Logo" 
-              className="w-20 h-20 sm:w-28 sm:h-28 object-contain brightness-0 invert opacity-90 transition-transform group-hover:scale-105"
+              className="w-12 h-12 sm:w-16 sm:h-16 object-contain brightness-0 invert opacity-90 transition-transform group-hover:scale-105"
             />
           </div>
           <h1 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-xl sm:text-2xl tracking-wide group-hover:text-white transition-colors">
