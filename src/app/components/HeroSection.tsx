@@ -29,8 +29,10 @@ export function HeroSection({ onCtaClick }: HeroSectionProps) {
           className="flex flex-col items-start max-w-2xl"
         >
           {/* Tagline */}
-          <h1 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.2] text-left drop-shadow-lg">
-            Egyedi kertek szakértőktől<br />–<br />tervezéstől gondozásig.
+          <h1 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.2] flex flex-col items-start drop-shadow-lg">
+            <span>Egyedi kertek szakértőktől</span>
+            <span className="self-center py-2">–</span>
+            <span>tervezéstől gondozásig.</span>
           </h1>
         </motion.div>
 
