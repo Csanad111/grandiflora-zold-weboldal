@@ -1,6 +1,7 @@
 import { Header } from "./components/Header";
 import { HeroSection } from "./components/HeroSection";
 import { ServicesGrid } from "./components/ServicesGrid";
+import { AboutSection } from "./components/AboutSection";
 import { ContactForm } from "./components/ContactForm";
 import { Footer } from "./components/Footer";
 
@@ -25,6 +26,7 @@ export default function App() {
       <Header />
       <main>
         <HeroSection onCtaClick={scrollToForm} />
+        <AboutSection />
         <ServicesGrid onServiceClick={scrollToForm} />
         <ContactForm />
       </main>

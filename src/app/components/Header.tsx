@@ -57,10 +57,10 @@ export function Header() {
                 </h2>
               </div>
               <div className="flex flex-col p-8 gap-6">
-                {["SZOLGÁLTATÁSOK", "REFERENCIA", "KAPCSOLAT"].map((item) => (
+                {["SZOLGÁLTATÁSOK", "RÓLUNK", "REFERENCIA", "KAPCSOLAT"].map((item) => (
                   <SheetClose asChild key={item}>
                     <a
-                      href={`#${item === "SZOLGÁLTATÁSOK" ? "services" : item === "KAPCSOLAT" ? "contact-form" : "services"}`}
+                      href={`#${item === "SZOLGÁLTATÁSOK" ? "services" : item === "RÓLUNK" ? "about" : item === "KAPCSOLAT" ? "contact-form" : "services"}`}
                       className="text-[#DCF0DC]/70 hover:text-[#DCF0DC] text-2xl font-['DM_Serif_Display'] tracking-widest transition-all hover:pl-2"
                     >
                       {item}
