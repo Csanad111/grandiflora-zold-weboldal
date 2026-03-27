@@ -1,5 +1,5 @@
 import { Instagram, Mail } from "lucide-react";
-import logoIcon from "figma:asset/059c293333deaf670cb9e3e54dcb31770524a2e7.png";
+import logoIcon from "@/assets/logo_new.png";
 import { 
   Sheet, 
   SheetContent, 
@@ -19,7 +19,7 @@ export function Header() {
           <img 
             src={logoIcon} 
             alt="Grandiflora Logo" 
-            className="w-10 h-10 sm:w-12 sm:h-12"
+            className="w-12 h-12 sm:w-14 sm:h-14 object-contain brightness-0 invert opacity-90"
           />
           <h1 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-2xl sm:text-3xl tracking-wide">
             GRANDIFLORA

@@ -1,15 +1,23 @@
 import { Instagram, Mail, Phone } from "lucide-react";
+import logoIcon from "@/assets/logo_new.png";
 
 export function Footer() {
   return (
-    <footer className="bg-[#050D07] text-[#eae5d9] py-12 sm:py-16 px-4 sm:px-6">
+    <footer className="bg-[#050D07] text-[#DCF0DC] py-12 sm:py-16 px-4 sm:px-6">
       <div className="container mx-auto max-w-7xl">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
           {/* Logo & Description */}
           <div>
-            <h3 className="font-['DM_Serif_Display'] text-2xl sm:text-3xl mb-4">
-              GRANDIFLORA
-            </h3>
+            <div className="flex items-center gap-3 mb-6">
+              <img 
+                src={logoIcon} 
+                alt="Grandiflora Logo" 
+                className="w-10 h-10 object-contain brightness-0 invert opacity-80"
+              />
+              <h3 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-2xl sm:text-3xl">
+                GRANDIFLORA
+              </h3>
+            </div>
             <p className="text-white/80 leading-relaxed mb-4 text-sm sm:text-base">
               Professzionális kertészeti szolgáltatások több mint 10 éves tapasztalattal.
             </p>
