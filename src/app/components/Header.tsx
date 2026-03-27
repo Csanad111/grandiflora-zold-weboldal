@@ -26,50 +26,17 @@ export function Header() {
           </h1>
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
-          {["SZOLGÁLTATÁSOK", "REFERENCIA", "KAPCSOLAT"].map((item) => (
-            <a
-              key={item}
-              href={`#${item === "SZOLGÁLTATÁSOK" ? "services" : item === "KAPCSOLAT" ? "contact-form" : "services"}`}
-              className="text-[#DCF0DC]/80 hover:text-[#DCF0DC] text-sm font-medium tracking-widest transition-colors"
-            >
-              {item}
-            </a>
-          ))}
-        </nav>
-
-        {/* Action Icons & Mobile Menu */}
-        <div className="flex items-center gap-4 sm:gap-6">
-          <div className="hidden sm:flex items-center gap-4 sm:gap-6">
-            <a
-              href="https://instagram.com/grandiflora_kertepites"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#DCF0DC] hover:text-white transition-colors hover:scale-110 duration-200"
-              aria-label="Instagram"
-            >
-              <Instagram size={24} className="sm:w-7 sm:h-7" />
-            </a>
-            <a
-              href="mailto:kertepites@grandiflorakert.hu"
-              className="text-[#DCF0DC] hover:text-white transition-colors hover:scale-110 duration-200"
-              aria-label="Email"
-            >
-              <Mail size={24} className="sm:w-7 sm:h-7" />
-            </a>
-          </div>
-
-          {/* Mobile Hamburger Menu (2-line) */}
+        {/* Action Area (Hamburger only) */}
+        <div className="flex items-center gap-4">
+          {/* Mobile/Desktop Hamburger Menu (2-line, equal width) */}
           <Sheet>
             <SheetTrigger asChild>
-              <button className="flex flex-col gap-1.5 p-2 focus:outline-none group">
+              <button className="flex flex-col gap-2 p-2 focus:outline-none group">
                 <motion.span 
                   className="w-8 h-[2px] bg-[#DCF0DC] rounded-full"
-                  whileHover={{ width: "32px" }}
                 />
                 <motion.span 
-                  className="w-5 h-[2px] bg-[#DCF0DC] rounded-full self-end group-hover:w-8 transition-all duration-300"
+                  className="w-8 h-[2px] bg-[#DCF0DC] rounded-full"
                 />
               </button>
             </SheetTrigger>
@@ -92,10 +59,17 @@ export function Header() {
                 ))}
                 
                 <div className="mt-12 pt-8 border-t border-white/5 flex gap-6">
-                   <a href="#" className="text-[#DCF0DC]/60 hover:text-[#DCF0DC] transition-colors">
+                   <a 
+                     href="https://instagram.com/grandiflora_kertepites" 
+                     target="_blank" 
+                     className="text-[#DCF0DC]/60 hover:text-[#DCF0DC] transition-colors"
+                   >
                      <Instagram size={24} />
                    </a>
-                   <a href="#" className="text-[#DCF0DC]/60 hover:text-[#DCF0DC] transition-colors">
+                   <a 
+                     href="mailto:kertepites@grandiflorakert.hu" 
+                     className="text-[#DCF0DC]/60 hover:text-[#DCF0DC] transition-colors"
+                   >
                      <Mail size={24} />
                    </a>
                 </div>
