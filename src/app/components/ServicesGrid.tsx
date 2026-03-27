@@ -63,10 +63,10 @@ export function ServicesGrid({ onServiceClick }: ServicesGridProps) {
           transition={{ duration: 0.6 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="font-['DM_Serif_Display'] text-[#eae5d9] text-4xl sm:text-5xl mb-4">
+          <h2 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-4xl sm:text-5xl mb-4">
             Szolgáltatásaink
           </h2>
-          <p className="text-[#eae5d9]/80 text-base sm:text-lg px-4">
+          <p className="text-[#DCF0DC]/80 text-base sm:text-lg px-4">
             Komplex kertészeti szolgáltatások szakértő csapattal
           </p>
         </motion.div>
@@ -81,7 +81,7 @@ export function ServicesGrid({ onServiceClick }: ServicesGridProps) {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <LiquidGlassCard className="h-full">
-                <div className="relative h-full p-6 sm:p-8 backdrop-blur-[40px] bg-[#1a3a23]/60 border border-white/10 rounded-[24px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-2xl hover:border-[#eae5d9]/30 transition-all duration-300 group cursor-pointer">
+                <div className="relative h-full p-6 sm:p-8 backdrop-blur-[40px] bg-[#1a3a23]/60 border border-white/10 rounded-[24px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-2xl hover:border-[#DCF0DC]/30 transition-all duration-300 group cursor-pointer">
                   {/* Background Image */}
                   <div className="absolute inset-0 rounded-[24px] overflow-hidden opacity-0 group-hover:opacity-30 transition-opacity duration-500">
                     <img
@@ -93,18 +93,18 @@ export function ServicesGrid({ onServiceClick }: ServicesGridProps) {
 
                   {/* Content */}
                   <div className="relative z-10">
-                    <div className="mb-4 inline-flex p-3 sm:p-4 bg-[#eae5d9]/10 rounded-full">
-                      <service.icon size={28} className="text-[#eae5d9] sm:w-8 sm:h-8" />
+                    <div className="mb-4 inline-flex p-3 sm:p-4 bg-[#DCF0DC]/10 rounded-full">
+                      <service.icon size={28} className="text-[#DCF0DC] sm:w-8 sm:h-8" />
                     </div>
-                    <h3 className="font-['DM_Serif_Display'] text-[#eae5d9] text-xl sm:text-2xl mb-3">
+                    <h3 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-xl sm:text-2xl mb-3">
                       {service.title}
                     </h3>
-                    <p className="text-[#eae5d9]/80 text-sm sm:text-base mb-6 leading-relaxed min-h-[4.5rem]">
+                    <p className="text-[#DCF0DC]/80 text-sm sm:text-base mb-6 leading-relaxed min-h-[4.5rem]">
                       {service.description}
                     </p>
                     <button
                       onClick={onServiceClick}
-                      className="bg-[#eae5d9]/10 hover:bg-[#eae5d9] hover:text-[#132a18] text-[#eae5d9] px-5 sm:px-6 py-2.5 sm:py-3 rounded-[20px] text-sm sm:text-base font-medium transition-all duration-300 inline-flex items-center gap-2"
+                      className="bg-[#DCF0DC]/10 hover:bg-[#DCF0DC] hover:text-[#132a18] text-[#DCF0DC] px-5 sm:px-6 py-2.5 sm:py-3 rounded-[20px] text-sm sm:text-base font-medium transition-all duration-300 inline-flex items-center gap-2"
                     >
                       Érdekel
                     </button>

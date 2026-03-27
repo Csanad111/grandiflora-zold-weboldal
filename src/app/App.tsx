@@ -13,7 +13,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#132a18] text-[#eae5d9]">
+    <div className="min-h-screen bg-[#132a18] text-[#DCF0DC]">
       <Header />
       <main>
         <HeroSection onCtaClick={scrollToForm} />

@@ -103,7 +103,7 @@ export function ContactForm() {
             transition={{ duration: 0.8 }}
           >
             <LiquidGlassCard>
-              <div className="relative p-8 sm:p-10 backdrop-blur-[40px] bg-[#1a3a23]/30 border border-white/10 rounded-[32px] shadow-2xl">
+              <div className="relative p-8 sm:p-10 backdrop-blur-[40px] bg-[#1a3a23]/30 border border-[#DCF0DC]/10 rounded-[32px] shadow-2xl">
                 <div className="mb-8">
                   <h3 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-2xl mb-2">Ingyenes Felmérés</h3>
                   <p className="text-[#DCF0DC]/60 text-sm">Töltse ki az űrlapot, és 24 órán belül visszahívjuk!</p>
@@ -122,7 +122,7 @@ export function ContactForm() {
                           className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm transition-all border ${
                             selectedServices.includes(service)
                               ? "bg-[#DCF0DC] text-[#132a18] border-[#DCF0DC]"
-                              : "bg-white/5 text-[#DCF0DC]/70 border-white/10 hover:border-white/30"
+                              : "bg-white/5 text-[#DCF0DC]/70 border-[#DCF0DC]/10 hover:border-[#DCF0DC]/30"
                           }`}
                         >
                           {service}
@@ -143,7 +143,7 @@ export function ContactForm() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-[16px] bg-[#132a18]/50 border border-white/20 backdrop-blur-md text-[#DCF0DC] placeholder-[#DCF0DC]/40 focus:outline-none focus:ring-2 focus:ring-[#DCF0DC] focus:border-transparent transition-all text-sm sm:text-base"
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-[16px] bg-[#132a18]/50 border border-[#DCF0DC]/20 backdrop-blur-md text-[#DCF0DC] placeholder-[#DCF0DC]/40 focus:outline-none focus:ring-2 focus:ring-[#DCF0DC] focus:border-transparent transition-all text-sm sm:text-base"
                       placeholder="Teljes név"
                     />
                   </div>
@@ -160,7 +160,7 @@ export function ContactForm() {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-[16px] bg-[#132a18]/50 border border-white/20 backdrop-blur-md text-[#DCF0DC] placeholder-[#DCF0DC]/40 focus:outline-none focus:ring-2 focus:ring-[#DCF0DC] focus:border-transparent transition-all text-sm sm:text-base"
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-[16px] bg-[#132a18]/50 border border-[#DCF0DC]/20 backdrop-blur-md text-[#DCF0DC] placeholder-[#DCF0DC]/40 focus:outline-none focus:ring-2 focus:ring-[#DCF0DC] focus:border-transparent transition-all text-sm sm:text-base"
                       placeholder="+36 20 123 4567"
                     />
                   </div>
@@ -177,7 +177,7 @@ export function ContactForm() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-[16px] bg-[#132a18]/50 border border-white/20 backdrop-blur-md text-[#DCF0DC] placeholder-[#DCF0DC]/40 focus:outline-none focus:ring-2 focus:ring-[#DCF0DC] focus:border-transparent transition-all text-sm sm:text-base"
+                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-[16px] bg-[#132a18]/50 border border-[#DCF0DC]/20 backdrop-blur-md text-[#DCF0DC] placeholder-[#DCF0DC]/40 focus:outline-none focus:ring-2 focus:ring-[#DCF0DC] focus:border-transparent transition-all text-sm sm:text-base"
                       placeholder="email@example.com"
                     />
                   </div>
@@ -211,7 +211,7 @@ export function ContactForm() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="bg-[#132a18] border border-white/10 p-8 sm:p-12 rounded-[24px] shadow-2xl max-w-md text-center w-full"
+              className="bg-[#132a18] border border-[#DCF0DC]/10 p-8 sm:p-12 rounded-[24px] shadow-2xl max-w-md text-center w-full"
             >
               <CheckCircle size={64} className="text-[#DCF0DC] mx-auto mb-4" />
               <h3 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-2xl sm:text-3xl mb-3">

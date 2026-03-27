@@ -18,10 +18,10 @@ export function Footer() {
                 GRANDIFLORA
               </h3>
             </div>
-            <p className="text-white/80 leading-relaxed mb-4 text-sm sm:text-base">
+            <p className="text-[#DCF0DC]/80 leading-relaxed mb-4 text-sm sm:text-base">
               Professzionális kertészeti szolgáltatások több mint 10 éves tapasztalattal.
             </p>
-            <p className="text-white/60 text-sm">
+            <p className="text-[#DCF0DC]/60 text-sm">
               🇬🇧 C1 English Fluency Available
             </p>
           </div>
@@ -34,14 +34,14 @@ export function Footer() {
             <div className="space-y-3">
               <a
                 href="mailto:kertepites@grandiflorakert.hu"
-                className="flex items-center gap-3 text-white/80 hover:text-white transition-colors text-sm sm:text-base"
+                className="flex items-center gap-3 text-[#DCF0DC]/80 hover:text-[#DCF0DC] transition-colors text-sm sm:text-base"
               >
                 <Mail size={20} />
                 <span className="break-all">kertepites@grandiflorakert.hu</span>
               </a>
               <a
                 href="tel:+36301234567"
-                className="flex items-center gap-3 text-white/80 hover:text-white transition-colors text-sm sm:text-base"
+                className="flex items-center gap-3 text-[#DCF0DC]/80 hover:text-[#DCF0DC] transition-colors text-sm sm:text-base"
               >
                 <Phone size={20} />
                 <span>+36 30 123 4567</span>
@@ -50,7 +50,7 @@ export function Footer() {
                 href="https://instagram.com/grandiflora_kertepites"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 text-white/80 hover:text-white transition-colors text-sm sm:text-base"
+                className="flex items-center gap-3 text-[#DCF0DC]/80 hover:text-[#DCF0DC] transition-colors text-sm sm:text-base"
               >
                 <Instagram size={20} />
                 <span>@grandiflora_kertepites</span>
@@ -63,7 +63,7 @@ export function Footer() {
             <h4 className="font-['DM_Serif_Display'] text-lg sm:text-xl mb-4">
               Szolgáltatások
             </h4>
-            <ul className="space-y-2 text-white/80 text-sm sm:text-base">
+            <ul className="space-y-2 text-[#DCF0DC]/80 text-sm sm:text-base">
               <li>Kertépítés</li>
               <li>Kerttervezés</li>
               <li>Faápolás</li>
@@ -75,7 +75,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/20 text-center text-white/60 text-xs sm:text-sm">
+        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/20 text-center text-[#DCF0DC]/60 text-xs sm:text-sm">
           <p>© {new Date().getFullYear()} Grandiflora. Minden jog fenntartva.</p>
         </div>
       </div>
