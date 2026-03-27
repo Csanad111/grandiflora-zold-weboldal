@@ -60,7 +60,7 @@ export function ContactForm() {
   };
 
   return (
-    <section id="contact-form" className="py-20 sm:py-32 px-4 sm:px-6 bg-[#0a1a0e] overflow-hidden scroll-mt-24">
+    <section id="contact-form" className="py-20 sm:py-32 px-4 sm:px-6 bg-[#DCF0DC] overflow-hidden scroll-mt-24">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
@@ -71,10 +71,10 @@ export function ContactForm() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-4xl sm:text-5xl lg:text-6xl mb-6">
+            <h2 className="font-['DM_Serif_Display'] text-[#132a18] text-4xl sm:text-5xl lg:text-6xl mb-6">
               Lépjen velünk<br />kapcsolatba
             </h2>
-            <p className="text-[#DCF0DC]/70 text-lg mb-12 max-w-md">
+            <p className="text-[#132a18]/70 text-lg mb-12 max-w-md">
               Kérdése van, vagy professzionális kertépítőt keres? Keressen minket bizalommal az alábbi elérhetőségeinken!
             </p>
 
@@ -94,12 +94,12 @@ export function ContactForm() {
                   transition={{ delay: index * 0.1 + 0.5 }}
                   className="flex items-center gap-5 group"
                 >
-                  <div className="w-12 h-12 rounded-full bg-[#DCF0DC]/10 flex items-center justify-center group-hover:bg-[#DCF0DC]/20 transition-colors">
-                    <item.icon className="text-[#DCF0DC]" size={22} />
+                  <div className="w-12 h-12 rounded-full bg-[#132a18]/10 flex items-center justify-center group-hover:bg-[#132a18]/20 transition-colors">
+                    <item.icon className="text-[#132a18]" size={22} />
                   </div>
                   <div>
-                    <p className="text-[#DCF0DC]/50 text-sm uppercase tracking-widest mb-0.5">{item.label}</p>
-                    <p className="text-[#DCF0DC] text-lg font-medium">{item.value}</p>
+                    <p className="text-[#132a18]/50 text-sm uppercase tracking-widest mb-0.5">{item.label}</p>
+                    <p className="text-[#132a18] text-lg font-medium">{item.value}</p>
                   </div>
                 </motion.a>
               ))}
