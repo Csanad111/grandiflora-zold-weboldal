@@ -1,7 +1,6 @@
-import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { LiquidGlassCard } from "./LiquidGlassCard";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Mail, Phone, Instagram, MapPin } from "lucide-react";
 
 export function ContactForm() {
   const [formData, setFormData] = useState({
@@ -32,32 +31,68 @@ export function ContactForm() {
   };
 
   return (
-    <section id="contact-form" className="py-16 sm:py-24 px-4 sm:px-6 bg-[#0a1a0e]">
-      <div className="container mx-auto max-w-3xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-8 sm:mb-12"
-        >
-          <h2 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-4xl sm:text-5xl mb-4">
-            Ingyenes Felmérés
-          </h2>
-          <p className="text-[#DCF0DC]/80 text-base sm:text-lg px-4">
-            Töltse ki az űrlapot, és munkatársunk 24 órán belül felveszi Önnel a kapcsolatot!
-          </p>
-        </motion.div>
+  return (
+    <section id="contact-form" className="py-20 sm:py-32 px-4 sm:px-6 bg-[#0a1a0e] overflow-hidden">
+      <div className="container mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          
+          {/* Left Side: Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <h2 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-4xl sm:text-5xl lg:text-6xl mb-6">
+              Lépjen velünk<br />kapcsolatba
+            </h2>
+            <p className="text-[#DCF0DC]/70 text-lg mb-12 max-w-md">
+              Kérdése van, vagy professzionális kertépítőt keres? Keressen minket bizalommal az alábbi elérhetőségeinken!
+            </p>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <LiquidGlassCard>
-            <div className="relative p-6 sm:p-12 backdrop-blur-[40px] bg-[#1a3a23]/30 border border-white/10 rounded-[24px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
-              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+            <div className="space-y-8">
+              {[
+                { icon: Phone, label: "Telefon", value: "+36 30 123 4567", href: "tel:+36301234567" },
+                { icon: Mail, label: "E-mail", value: "kertepites@grandiflorakert.hu", href: "mailto:kertepites@grandiflorakert.hu" },
+                { icon: Instagram, label: "Instagram", value: "@grandiflora_kertepites", href: "https://instagram.com/grandiflora_kertepites" },
+              ].map((item, index) => (
+                <motion.a
+                  key={item.label}
+                  href={item.href}
+                  target={item.icon === Instagram ? "_blank" : undefined}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 + 0.5 }}
+                  className="flex items-center gap-5 group"
+                >
+                  <div className="w-12 h-12 rounded-full bg-[#DCF0DC]/10 flex items-center justify-center group-hover:bg-[#DCF0DC]/20 transition-colors">
+                    <item.icon className="text-[#DCF0DC]" size={22} />
+                  </div>
+                  <div>
+                    <p className="text-[#DCF0DC]/50 text-sm uppercase tracking-widest mb-0.5">{item.label}</p>
+                    <p className="text-[#DCF0DC] text-lg font-medium">{item.value}</p>
+                  </div>
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right Side: The Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            <LiquidGlassCard>
+              <div className="relative p-8 sm:p-10 backdrop-blur-[40px] bg-[#1a3a23]/30 border border-white/10 rounded-[32px] shadow-2xl">
+                <div className="mb-8">
+                  <h3 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-2xl mb-2">Ingyenes Felmérés</h3>
+                  <p className="text-[#DCF0DC]/60 text-sm">Töltse ki az űrlapot, és 24 órán belül visszahívjuk!</p>
+                </div>
+                
+                <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Name Field */}
                 <div>
                   <label
@@ -127,10 +162,13 @@ export function ContactForm() {
                 >
                   Időpontot foglalok
                 </motion.button>
-              </form>
-            </div>
-          </LiquidGlassCard>
-        </motion.div>
+                </form>
+              </div>
+            </LiquidGlassCard>
+          </motion.div>
+
+        </div>
+      </div>
 
         {/* Success Modal */}
         <AnimatePresence>
