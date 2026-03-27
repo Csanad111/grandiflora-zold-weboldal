@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { LiquidGlassCard } from "./LiquidGlassCard";
-import { CheckCircle, Mail, Phone, Instagram } from "lucide-react";
+import { CheckCircle, Mail, Phone, Instagram, Calendar as CalendarIcon, X } from "lucide-react";
+import { BookingCalendar } from "./BookingCalendar";
+import { format } from "date-fns";
+import { hu } from "date-fns/locale";
 
 const SERVICES = [
   "Kertépítés",
@@ -20,6 +23,8 @@ export function ContactForm() {
   });
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [confirmedDate, setConfirmedDate] = useState<Date | null>(null);
 
   const toggleService = (service: string) => {
     setSelectedServices(prev => 
@@ -31,14 +36,20 @@ export function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", { ...formData, selectedServices });
+    if (!confirmedDate) {
+      setShowCalendar(true);
+      return;
+    }
+    
+    console.log("Full Booking submitted:", { ...formData, selectedServices, confirmedDate });
     setIsSubmitted(true);
     
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({ name: "", phone: "", email: "" });
       setSelectedServices([]);
-    }, 3000);
+      setConfirmedDate(null);
+    }, 4000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -198,6 +209,57 @@ export function ContactForm() {
         </div>
       </div>
 
+      {/* Booking Calendar Modal */}
+      <AnimatePresence>
+        {showCalendar && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-md p-4"
+          >
+            <motion.div
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+              className="relative w-full max-w-lg"
+            >
+              <button 
+                onClick={() => setShowCalendar(false)}
+                className="absolute -top-12 right-0 text-[#DCF0DC] hover:rotate-90 transition-transform duration-300"
+              >
+                <X size={32} />
+              </button>
+              
+              <div className="mb-6 text-center">
+                <h3 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-3xl mb-2">Időpont Választása</h3>
+                <p className="text-[#DCF0DC]/60">Válassza ki az Önnek legmegfelelőbb napot a felméréshez!</p>
+              </div>
+
+              <BookingCalendar 
+                onClose={() => setShowCalendar(false)} 
+                onConfirm={(date) => {
+                  setConfirmedDate(date);
+                  setShowCalendar(false); // Close calendar after selection
+                  // We'll auto-trigger submit after confirmation in the simulated flow
+                  // But for now just close and let them click the main button again or handle it here
+                  // Directly trigger the submission logic after date confirmation
+                  console.log("Full Booking submitted after calendar:", { ...formData, selectedServices, confirmedDate: date });
+                  setIsSubmitted(true);
+                  
+                  setTimeout(() => {
+                    setIsSubmitted(false);
+                    setFormData({ name: "", phone: "", email: "" });
+                    setSelectedServices([]);
+                    setConfirmedDate(null);
+                  }, 4000);
+                }} 
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Success Modal */}
       <AnimatePresence>
         {isSubmitted && (
@@ -215,10 +277,19 @@ export function ContactForm() {
             >
               <CheckCircle size={64} className="text-[#DCF0DC] mx-auto mb-4" />
               <h3 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-2xl sm:text-3xl mb-3">
-                Köszönjük!
+                Foglalás Sikeres!
               </h3>
-              <p className="text-[#DCF0DC]/80 text-base sm:text-lg">
-                Jelentkezését fogadtuk. Hamarosan felvesszük Önnel a kapcsolatot!
+              <p className="text-[#DCF0DC]/80 text-base sm:text-lg mb-4">
+                Köszönjük, <strong>{formData.name}</strong>!
+              </p>
+              <div className="bg-[#DCF0DC]/5 py-3 px-4 rounded-[12px] border border-[#DCF0DC]/10 mb-6">
+                 <p className="text-xs text-[#DCF0DC]/60 uppercase tracking-widest mb-1">Rögzített időpont</p>
+                 <p className="text-[#DCF0DC] font-medium">
+                   {confirmedDate ? format(confirmedDate, "yyyy. MMMM d.", { locale: hu }) : ""}
+                 </p>
+              </div>
+              <p className="text-[#DCF0DC]/60 text-sm">
+                A visszaigazolást e-mailben is elküldtük.
               </p>
             </motion.div>
           </motion.div>
