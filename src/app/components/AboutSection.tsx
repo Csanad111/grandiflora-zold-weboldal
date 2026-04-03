@@ -3,7 +3,7 @@ import aboutImg from "@/assets/about_us.png";
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 sm:py-32 px-4 sm:px-6 bg-[#1a3020] overflow-hidden scroll-mt-24">
+    <section id="about" className="pt-28 pb-20 sm:pt-36 sm:pb-32 px-4 sm:px-6 bg-[#1a3020] overflow-hidden">
       <div className="container mx-auto max-w-7xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Text Content */}

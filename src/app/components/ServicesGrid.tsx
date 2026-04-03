@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { LiquidGlassCard } from "./LiquidGlassCard";
+
 import { 
   Hammer, 
   PenTool, 
@@ -61,7 +61,7 @@ interface ServicesGridProps {
 
 export function ServicesGrid({ onServiceClick }: ServicesGridProps) {
   return (
-    <section id="services" className="py-16 sm:py-24 px-4 sm:px-6 bg-[#132a18] scroll-mt-24">
+    <section id="services" className="pt-28 pb-16 sm:pt-36 sm:pb-24 px-4 sm:px-6 bg-[#132a18]">
       <div className="container mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -87,10 +87,10 @@ export function ServicesGrid({ onServiceClick }: ServicesGridProps) {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <LiquidGlassCard className="h-full">
-                <div className="relative h-full p-6 sm:p-8 backdrop-blur-[40px] bg-[#1a3a23]/60 border border-white/10 rounded-[24px] shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] hover:shadow-2xl hover:border-[#DCF0DC]/30 transition-all duration-300 group cursor-pointer">
+              <div className="h-full">
+                <div className="relative h-full p-6 sm:p-8 backdrop-blur-xl bg-white/5 border border-white/10 rounded-[24px] shadow-lg hover:shadow-2xl hover:border-[#DCF0DC]/30 transition-all duration-300 group cursor-pointer overflow-hidden">
                   {/* Background Image */}
-                  <div className="absolute inset-0 rounded-[24px] overflow-hidden opacity-0 group-hover:opacity-30 transition-opacity duration-500">
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500">
                     <img
                       src={service.image}
                       alt={service.title}
@@ -99,7 +99,7 @@ export function ServicesGrid({ onServiceClick }: ServicesGridProps) {
                   </div>
 
                   {/* Content */}
-                  <div className="relative z-10">
+                  <div className="relative z-10 hidden-on-hover">
                     <div className="mb-4 inline-flex p-3 sm:p-4 bg-[#DCF0DC]/10 rounded-full">
                       <service.icon size={28} className="text-[#DCF0DC] sm:w-8 sm:h-8" />
                     </div>
@@ -117,7 +117,7 @@ export function ServicesGrid({ onServiceClick }: ServicesGridProps) {
                     </button>
                   </div>
                 </div>
-              </LiquidGlassCard>
+              </div>
             </motion.div>
           ))}
         </div>

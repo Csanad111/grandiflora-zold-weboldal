@@ -20,7 +20,7 @@ const galleryImages = [
 
 export function ReferenceGallery() {
   return (
-    <section id="referencia" className="py-20 sm:py-32 px-4 sm:px-6 bg-[#0a1a0e] scroll-mt-24">
+    <section id="referencia" className="pt-28 pb-20 sm:pt-36 sm:pb-32 px-4 sm:px-6 bg-[#0a1a0e]">
       <div className="container mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
