@@ -60,7 +60,7 @@ export function Header() {
                 {["SZOLGÁLTATÁSOK", "RÓLUNK", "REFERENCIA", "KAPCSOLAT"].map((item) => (
                   <SheetClose asChild key={item}>
                     <a
-                      href={`#${item === "SZOLGÁLTATÁSOK" ? "services" : item === "RÓLUNK" ? "about" : item === "KAPCSOLAT" ? "contact-form" : "services"}`}
+                      href={`#${item === "SZOLGÁLTATÁSOK" ? "services" : item === "RÓLUNK" ? "about" : item === "REFERENCIA" ? "referencia" : "contact-form"}`}
                       className="text-[#DCF0DC]/70 hover:text-[#DCF0DC] text-2xl font-['DM_Serif_Display'] tracking-widest transition-all hover:pl-2"
                     >
                       {item}

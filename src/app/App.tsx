@@ -5,29 +5,17 @@ import { AboutSection } from "./components/AboutSection";
 import { ContactForm } from "./components/ContactForm";
 import { Footer } from "./components/Footer";
 
+import { ReferenceGallery } from "./components/ReferenceGallery";
+
 export default function App() {
-  const scrollToForm = () => {
-    const formSection = document.getElementById("contact-form");
-    if (formSection) {
-      // Calculate position with offset for fixed header (approx 80px) + extra breathing room
-      const headerOffset = 100;
-      const elementPosition = formSection.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
-  };
-
   return (
     <div className="min-h-screen bg-[#132a18] text-[#DCF0DC]">
       <Header />
       <main>
-        <HeroSection onCtaClick={scrollToForm} />
+        <HeroSection onCtaClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })} />
         <AboutSection />
-        <ServicesGrid onServiceClick={scrollToForm} />
+        <ReferenceGallery />
+        <ServicesGrid onServiceClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })} />
         <ContactForm />
       </main>
       <Footer />

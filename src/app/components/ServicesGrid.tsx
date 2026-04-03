@@ -9,42 +9,49 @@ import {
   Sprout 
 } from "lucide-react";
 
+import imgConstruction from "@/assets/service_construction_1775210339594.png";
+import imgDesign from "@/assets/service_design_1775210353483.png";
+import imgTreecare from "@/assets/service_treecare_1775210367470.png";
+import imgIrrigation from "@/assets/service_irrigation_1775210394559.png";
+import imgWoodchip from "@/assets/service_woodchip_1775210410767.png";
+import imgMaintenance from "@/assets/service_maintenance_1775210426374.png";
+
 const services = [
   {
     icon: Hammer,
     title: "Kertépítés",
     description: "Komplex kertépítési munkák a tervezéstől a megvalósításig. Terasszal, járdával és díszkertekkel.",
-    image: "https://images.unsplash.com/photo-1622015663319-e97e697503ee?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBnYXJkZW4lMjBsYW5kc2NhcGluZyUyMGRlc2lnbnxlbnwxfHx8fDE3NzQ1NTY5MzV8MA&ixlib=rb-4.1.0&q=80&w=400"
+    image: imgConstruction
   },
   {
     icon: PenTool,
     title: "Kerttervezés",
     description: "Egyedi kerttervek készítése modern 3D vizualizációval és szakmai tanácsadással.",
-    image: "https://images.unsplash.com/photo-1617850687395-620757feb1f3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYW5kc2NhcGUlMjBhcmNoaXRlY3R1cmUlMjBkZXNpZ258ZW58MXx8fHwxNzc0NTU2OTM2fDA&ixlib=rb-4.1.0&q=80&w=400"
+    image: imgDesign
   },
   {
     icon: TreeDeciduous,
     title: "Faápolás",
     description: "Szakszerű faápolás, metszés és fakivágás minden fafajta esetében biztonsággal.",
-    image: "https://images.unsplash.com/photo-1765064520245-2baac5e82689?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB0cmVlJTIwY2FyZSUyMHBydW5pbmd8ZW58MXx8fHwxNzc0NTU2OTM1fDA&ixlib=rb-4.1.0&q=80&w=400"
+    image: imgTreecare
   },
   {
     icon: Droplets,
     title: "Öntözéstechnika",
     description: "Modern automata öntözőrendszerek tervezése és telepítése energiatakarékosan.",
-    image: "https://images.unsplash.com/photo-1760727467149-4cec6fb5b34d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnYXJkZW4lMjBpcnJpZ2F0aW9uJTIwc3lzdGVtfGVufDF8fHx8MTc3NDU1NjkzNnww&ixlib=rb-4.1.0&q=80&w=400"
+    image: imgIrrigation
   },
   {
     icon: Recycle,
     title: "Ágdarálás",
     description: "Professzionális ágdarálási szolgáltatás környezetbarát komposztálással.",
-    image: "https://images.unsplash.com/photo-1728881652469-56b43240dce9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnYXJkZW4lMjBtYWludGVuYW5jZSUyMGxhbmRzY2FwaW5nfGVufDF8fHx8MTc3NDU0ODMwM3ww&ixlib=rb-4.1.0&q=80&w=400"
+    image: imgWoodchip
   },
   {
     icon: Sprout,
     title: "Kertfenntartás",
     description: "Rendszeres kertgondozás és -karbantartás egész évben testre szabott ütemezéssel.",
-    image: "https://images.unsplash.com/photo-1728881652469-56b43240dce9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnYXJkZW4lMjBtYWludGVuYW5jZSUyMGxhbmRzY2FwaW5nfGVufDF8fHx8MTc3NDU0ODMwM3ww&ixlib=rb-4.1.0&q=80&w=400"
+    image: imgMaintenance
   }
 ];
 
