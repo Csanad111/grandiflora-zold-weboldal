@@ -13,7 +13,7 @@ import imgConstruction from "@/assets/projects/p3_1.jpg";
 import imgDesign from "@/assets/service_design_1775210353483.png";
 import imgTreecare from "@/assets/service_treecare_1775210367470.png";
 import imgIrrigation from "@/assets/projects/p2_1.jpg";
-import imgWoodchip from "@/assets/projects/p1_4.jpg";
+import imgWoodchip from "@/assets/projects/p1_1.jpg";
 import imgMaintenance from "@/assets/service_maintenance_1775210426374.png";
 
 const services = [
