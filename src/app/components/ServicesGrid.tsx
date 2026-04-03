@@ -9,11 +9,11 @@ import {
   Sprout 
 } from "lucide-react";
 
-import imgConstruction from "@/assets/service_construction_1775210339594.png";
+import imgConstruction from "@/assets/ig_10.jpg";
 import imgDesign from "@/assets/service_design_1775210353483.png";
 import imgTreecare from "@/assets/service_treecare_1775210367470.png";
 import imgIrrigation from "@/assets/service_irrigation_1775210394559.png";
-import imgWoodchip from "@/assets/service_woodchip_1775210410767.png";
+import imgWoodchip from "@/assets/ig_3.jpg";
 import imgMaintenance from "@/assets/service_maintenance_1775210426374.png";
 
 const services = [

@@ -1,21 +1,24 @@
 import { motion } from "motion/react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
-// Use some generated and local images for the gallery
-import galleryHero from "@/assets/gallery_hero_1775210443404.png";
-import aboutImg from "@/assets/about_us.png";
-import heroImg from "@/assets/hero_bg_flower.jpg";
-import service1 from "@/assets/service_construction_1775210339594.png";
-import service2 from "@/assets/service_design_1775210353483.png";
-import service3 from "@/assets/service_maintenance_1775210426374.png";
+import ig1 from "@/assets/ig_1.jpg";
+import ig2 from "@/assets/ig_2.jpg";
+import ig4 from "@/assets/ig_4.jpg";
+import ig5 from "@/assets/ig_5.jpg";
+import ig6 from "@/assets/ig_6.jpg";
+import ig7 from "@/assets/ig_7.jpg";
+import ig8 from "@/assets/ig_8.jpg";
+import ig9 from "@/assets/ig_9.jpg";
 
 const galleryImages = [
-  galleryHero,
-  service1,
-  aboutImg,
-  service2,
-  heroImg,
-  service3,
+  ig1,
+  ig2,
+  ig8,
+  ig4,
+  ig5,
+  ig9,
+  ig6,
+  ig7,
 ];
 
 export function ReferenceGallery() {
