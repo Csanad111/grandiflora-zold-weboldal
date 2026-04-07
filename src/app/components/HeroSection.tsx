@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { ArrowDown } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import heroImage from "@/assets/hero_bg_flower.jpg";
 
 interface HeroSectionProps {
@@ -43,18 +43,24 @@ export function HeroSection({ onCtaClick }: HeroSectionProps) {
           </div>
         </motion.div>
 
-        <motion.button
-          onClick={onCtaClick}
-          initial={{ opacity: 0, y: 20 }}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="mt-12 bg-[#DCF0DC] hover:bg-white text-[#132a18] px-8 sm:px-12 py-4 sm:py-5 rounded-[20px] font-['DM_Serif_Display'] text-lg sm:text-xl shadow-2xl transition-all duration-300 inline-flex items-center gap-3"
+          transition={{ duration: 0.8, delay: 0.6 }}
         >
-          Kérjen ingyenes felmérést!
-          <ArrowDown size={24} className="animate-bounce" />
-        </motion.button>
+          <button 
+            onClick={() => {
+              document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="group relative px-8 py-4 sm:px-10 sm:py-5 bg-white text-[#132a18] rounded-full font-bold text-lg sm:text-xl overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.3)] hover:shadow-[0_0_60px_rgba(255,255,255,0.5)] transition-all duration-300 mt-12"
+          >
+            <span className="relative z-10 flex items-center gap-3">
+              Kérjen felmérést!
+              <ChevronRight className="group-hover:translate-x-1 transition-transform" />
+            </span>
+            <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-transparent via-white to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 blur-md"></div>
+          </button>
+        </motion.div>
       </div>
 
       {/* Scroll Indicator */}

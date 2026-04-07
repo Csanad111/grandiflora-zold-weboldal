@@ -1,10 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { LiquidGlassCard } from "./LiquidGlassCard";
-import { CheckCircle, Mail, Phone, Instagram, Calendar as CalendarIcon, X } from "lucide-react";
-import { BookingCalendar } from "./BookingCalendar";
-import { format } from "date-fns";
-import { hu } from "date-fns/locale";
+import { CheckCircle, Mail, Phone, Instagram } from "lucide-react";
 
 const SERVICES = [
   "Kertépítés",
@@ -19,12 +16,11 @@ export function ContactForm() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    email: ""
+    email: "",
+    message: ""
   });
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [showCalendar, setShowCalendar] = useState(false);
-  const [confirmedDate, setConfirmedDate] = useState<Date | null>(null);
 
   const toggleService = (service: string) => {
     setSelectedServices(prev => 
@@ -36,23 +32,18 @@ export function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!confirmedDate) {
-      setShowCalendar(true);
-      return;
-    }
     
-    console.log("Full Booking submitted:", { ...formData, selectedServices, confirmedDate });
+    console.log("Contact form submitted:", { ...formData, selectedServices });
     setIsSubmitted(true);
     
     setTimeout(() => {
       setIsSubmitted(false);
-      setFormData({ name: "", phone: "", email: "" });
+      setFormData({ name: "", phone: "", email: "", message: "" });
       setSelectedServices([]);
-      setConfirmedDate(null);
     }, 4000);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -75,13 +66,13 @@ export function ContactForm() {
               Lépjen velünk<br />kapcsolatba
             </h2>
             <p className="text-[#DCF0DC]/70 text-lg mb-12 max-w-md">
-              Kérdése van, vagy professzionális kertépítőt keres? Keressen minket bizalommal az alábbi elérhetőségeinken!
+              Kérdése van, vagy professzionális kertépítőt keres? Keressen minket bizalommal az alábbi elérhetőségeinken, akár azonnal!
             </p>
 
             <div className="space-y-8">
               {[
-                { icon: Phone, label: "Telefon", value: "+36 30 123 4567", href: "tel:+36301234567" },
-                { icon: Mail, label: "E-mail", value: "kertepites@grandiflorakert.hu", href: "mailto:kertepites@grandiflorakert.hu" },
+                { icon: Phone, label: "Telefon (Telefonszám)", value: "+36 30 123 4567", href: "tel:+36301234567" },
+                { icon: Mail, label: "E-mail (Írjon nekünk)", value: "kertepites@grandiflorakert.hu", href: "mailto:kertepites@grandiflorakert.hu" },
                 { icon: Instagram, label: "Instagram", value: "@grandiflora_kertepites", href: "https://instagram.com/grandiflora_kertepites" },
               ].map((item, index) => (
                 <motion.a
@@ -91,15 +82,15 @@ export function ContactForm() {
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 + 0.5 }}
-                  className="flex items-center gap-5 group"
+                  transition={{ delay: index * 0.1 + 0.2 }}
+                  className="flex items-center gap-5 group p-4 -ml-4 rounded-2xl hover:bg-white/5 transition-colors cursor-pointer"
                 >
-                  <div className="w-12 h-12 rounded-full bg-[#DCF0DC]/10 flex items-center justify-center group-hover:bg-[#DCF0DC]/20 transition-colors">
-                    <item.icon className="text-[#DCF0DC]" size={22} />
+                  <div className="w-14 h-14 rounded-full bg-[#DCF0DC]/10 flex items-center justify-center group-hover:bg-[#DCF0DC]/20 group-hover:scale-110 transition-all">
+                    <item.icon className="text-[#DCF0DC]" size={26} />
                   </div>
                   <div>
-                    <p className="text-[#DCF0DC]/50 text-sm uppercase tracking-widest mb-0.5">{item.label}</p>
-                    <p className="text-[#DCF0DC] text-lg font-medium">{item.value}</p>
+                    <p className="text-[#DCF0DC]/50 text-xs sm:text-sm uppercase tracking-widest mb-1">{item.label}</p>
+                    <p className="text-[#DCF0DC] text-lg sm:text-xl font-medium">{item.value}</p>
                   </div>
                 </motion.a>
               ))}
@@ -116,15 +107,15 @@ export function ContactForm() {
             <LiquidGlassCard>
               <div className="relative p-8 sm:p-10 backdrop-blur-[40px] bg-[#1a3a23]/30 border border-[#DCF0DC]/10 rounded-[32px] shadow-2xl">
                 <div className="mb-8">
-                  <h3 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-2xl mb-2">Ingyenes Felmérés</h3>
-                  <p className="text-[#DCF0DC]/60 text-sm">Töltse ki az űrlapot, és 24 órán belül visszahívjuk!</p>
+                  <h3 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-2xl mb-2">Ajánlatkérés</h3>
+                  <p className="text-[#DCF0DC]/60 text-sm">Töltse ki az űrlapot, és felvesszük Önnel a kapcsolatot!</p>
                 </div>
                 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   {/* Service Selection */}
                   <div>
-                    <p className="text-[#DCF0DC] font-medium mb-4 text-sm sm:text-base">Melyik szolgáltatásunk érdekli?</p>
-                    <div className="flex flex-wrap gap-2 sm:gap-3">
+                    <p className="text-[#DCF0DC] font-medium mb-3 text-sm sm:text-base">Melyik szolgáltatásunk érdekli?</p>
+                    <div className="flex flex-wrap gap-2">
                       {SERVICES.map((service) => (
                         <button
                           key={service}
@@ -142,45 +133,41 @@ export function ContactForm() {
                     </div>
                   </div>
 
-                  {/* Name Field */}
-                  <div>
-                    <label htmlFor="name" className="block text-[#DCF0DC] font-medium mb-2 text-sm sm:text-base">
-                      Név
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-[16px] bg-[#132a18]/50 border border-[#DCF0DC]/20 backdrop-blur-md text-[#DCF0DC] placeholder-[#DCF0DC]/40 focus:outline-none focus:ring-2 focus:ring-[#DCF0DC] focus:border-transparent transition-all text-sm sm:text-base"
-                      placeholder="Teljes név"
-                    />
-                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    {/* Name Field */}
+                    <div>
+                      <label htmlFor="name" className="block text-[#DCF0DC]/80 text-sm mb-1.5">Név</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 rounded-[16px] bg-[#132a18]/50 border border-[#DCF0DC]/20 text-[#DCF0DC] placeholder-[#DCF0DC]/30 focus:outline-none focus:border-[#DCF0DC]/60 transition-colors text-sm"
+                        placeholder="Kovács János"
+                      />
+                    </div>
 
-                  {/* Phone Field */}
-                  <div>
-                    <label htmlFor="phone" className="block text-[#DCF0DC] font-medium mb-2 text-sm sm:text-base">
-                      Telefonszám
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-[16px] bg-[#132a18]/50 border border-[#DCF0DC]/20 backdrop-blur-md text-[#DCF0DC] placeholder-[#DCF0DC]/40 focus:outline-none focus:ring-2 focus:ring-[#DCF0DC] focus:border-transparent transition-all text-sm sm:text-base"
-                      placeholder="+36 20 123 4567"
-                    />
+                    {/* Phone Field */}
+                    <div>
+                      <label htmlFor="phone" className="block text-[#DCF0DC]/80 text-sm mb-1.5">Telefonszám</label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-3 rounded-[16px] bg-[#132a18]/50 border border-[#DCF0DC]/20 text-[#DCF0DC] placeholder-[#DCF0DC]/30 focus:outline-none focus:border-[#DCF0DC]/60 transition-colors text-sm"
+                        placeholder="+36 30 123 4567"
+                      />
+                    </div>
                   </div>
 
                   {/* Email Field */}
                   <div>
-                    <label htmlFor="email" className="block text-[#DCF0DC] font-medium mb-2 text-sm sm:text-base">
-                      E-mail
-                    </label>
+                    <label htmlFor="email" className="block text-[#DCF0DC]/80 text-sm mb-1.5">E-mail cím</label>
                     <input
                       type="email"
                       id="email"
@@ -188,9 +175,23 @@ export function ContactForm() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 sm:px-6 py-3 sm:py-4 rounded-[16px] bg-[#132a18]/50 border border-[#DCF0DC]/20 backdrop-blur-md text-[#DCF0DC] placeholder-[#DCF0DC]/40 focus:outline-none focus:ring-2 focus:ring-[#DCF0DC] focus:border-transparent transition-all text-sm sm:text-base"
-                      placeholder="email@example.com"
+                      className="w-full px-4 py-3 rounded-[16px] bg-[#132a18]/50 border border-[#DCF0DC]/20 text-[#DCF0DC] placeholder-[#DCF0DC]/30 focus:outline-none focus:border-[#DCF0DC]/60 transition-colors text-sm"
+                      placeholder="email@pelda.hu"
                     />
+                  </div>
+
+                  {/* Message Field */}
+                  <div>
+                    <label htmlFor="message" className="block text-[#DCF0DC]/80 text-sm mb-1.5">Üzenet, elképzelés</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows={3}
+                      className="w-full px-4 py-3 rounded-[16px] bg-[#132a18]/50 border border-[#DCF0DC]/20 text-[#DCF0DC] placeholder-[#DCF0DC]/30 focus:outline-none focus:border-[#DCF0DC]/60 transition-colors text-sm resize-none"
+                      placeholder="Írja le röviden, miben segíthetünk..."
+                    ></textarea>
                   </div>
 
                   {/* Submit Button */}
@@ -198,9 +199,9 @@ export function ContactForm() {
                     type="submit"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-[#DCF0DC] hover:bg-white text-[#132a18] px-6 sm:px-8 py-4 sm:py-5 rounded-[20px] font-['DM_Serif_Display'] text-lg sm:text-xl shadow-lg transition-all duration-300"
+                    className="w-full bg-[#DCF0DC] hover:bg-white text-[#132a18] px-6 py-4 rounded-[20px] font-bold text-lg shadow-lg transition-all duration-300 mt-2"
                   >
-                    Időpontot foglalok
+                    Üzenet küldése
                   </motion.button>
                 </form>
               </div>
@@ -208,57 +209,6 @@ export function ContactForm() {
           </motion.div>
         </div>
       </div>
-
-      {/* Booking Calendar Modal */}
-      <AnimatePresence>
-        {showCalendar && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[60] flex items-center justify-center bg-black/70 backdrop-blur-md p-4"
-          >
-            <motion.div
-              initial={{ scale: 0.9, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.9, y: 20 }}
-              className="relative w-full max-w-lg"
-            >
-              <button 
-                onClick={() => setShowCalendar(false)}
-                className="absolute -top-12 right-0 text-[#DCF0DC] hover:rotate-90 transition-transform duration-300"
-              >
-                <X size={32} />
-              </button>
-              
-              <div className="mb-6 text-center">
-                <h3 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-3xl mb-2">Időpont Választása</h3>
-                <p className="text-[#DCF0DC]/60">Válassza ki az Önnek legmegfelelőbb napot a felméréshez!</p>
-              </div>
-
-              <BookingCalendar 
-                onClose={() => setShowCalendar(false)} 
-                onConfirm={(date) => {
-                  setConfirmedDate(date);
-                  setShowCalendar(false); // Close calendar after selection
-                  // We'll auto-trigger submit after confirmation in the simulated flow
-                  // But for now just close and let them click the main button again or handle it here
-                  // Directly trigger the submission logic after date confirmation
-                  console.log("Full Booking submitted after calendar:", { ...formData, selectedServices, confirmedDate: date });
-                  setIsSubmitted(true);
-                  
-                  setTimeout(() => {
-                    setIsSubmitted(false);
-                    setFormData({ name: "", phone: "", email: "" });
-                    setSelectedServices([]);
-                    setConfirmedDate(null);
-                  }, 4000);
-                }} 
-              />
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Success Modal */}
       <AnimatePresence>
@@ -273,23 +223,18 @@ export function ContactForm() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.8, opacity: 0 }}
-              className="bg-[#132a18] border border-[#DCF0DC]/10 p-8 sm:p-12 rounded-[24px] shadow-2xl max-w-md text-center w-full"
+              className="bg-[#132a18] border border-[#DCF0DC]/10 p-8 sm:p-12 rounded-[24px] shadow-2xl max-w-md text-center w-full relative overflow-hidden"
             >
-              <CheckCircle size={64} className="text-[#DCF0DC] mx-auto mb-4" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#DCF0DC] to-transparent"></div>
+              <CheckCircle size={64} className="text-[#DCF0DC] mx-auto mb-6" />
               <h3 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-2xl sm:text-3xl mb-3">
-                Foglalás Sikeres!
+                Üzenet elküldve!
               </h3>
-              <p className="text-[#DCF0DC]/80 text-base sm:text-lg mb-4">
-                Köszönjük, <strong>{formData.name}</strong>!
+              <p className="text-[#DCF0DC]/80 text-base sm:text-lg mb-6">
+                Köszönjük az érdeklődését, <strong>{formData.name}</strong>!
               </p>
-              <div className="bg-[#DCF0DC]/5 py-3 px-4 rounded-[12px] border border-[#DCF0DC]/10 mb-6">
-                 <p className="text-xs text-[#DCF0DC]/60 uppercase tracking-widest mb-1">Rögzített időpont</p>
-                 <p className="text-[#DCF0DC] font-medium">
-                   {confirmedDate ? format(confirmedDate, "yyyy. MMMM d.", { locale: hu }) : ""}
-                 </p>
-              </div>
               <p className="text-[#DCF0DC]/60 text-sm">
-                A visszaigazolást e-mailben is elküldtük.
+                Munkatársunk hamarosan felveszi Önnel a kapcsolatot a megadott elérhetőségeken.
               </p>
             </motion.div>
           </motion.div>

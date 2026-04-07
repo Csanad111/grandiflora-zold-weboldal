@@ -54,39 +54,48 @@ export function ReferenceGallery() {
           </p>
         </motion.div>
 
-        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 1024: 3 }}>
-          <Masonry gutter="24px">
+        {/* Horizontal Scroll Container */}
+        <div className="relative group/slider">
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 sm:gap-8 pb-8 pt-4 custom-scrollbar hide-scrollbar-mobile">
             {projects.map((project, i) => (
               <motion.div
                 key={project.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="overflow-hidden rounded-2xl group cursor-pointer relative bg-[#132a18] shadow-lg border border-white/5"
+                className="w-[85vw] sm:w-[320px] lg:w-[320px] h-[400px] sm:h-[420px] flex-shrink-0 snap-center sm:snap-start overflow-hidden rounded-[24px] group cursor-pointer relative bg-[#132a18] shadow-xl border border-white/5"
                 onClick={() => openProject(project)}
               >
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative w-full h-full overflow-hidden">
                   <img
                     src={project.thumbnail}
                     alt={project.title}
                     className="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:scale-105 opacity-90 group-hover:opacity-100"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-end p-6">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex items-end p-6 sm:p-10">
                     <div>
-                      <span className="text-[#DCF0DC]/80 text-sm font-medium tracking-wider mb-2 block">
+                      <span className="text-[#DCF0DC]/80 text-sm font-medium tracking-wider mb-3 block">
                         {project.date}
                       </span>
-                      <h3 className="text-[#DCF0DC] text-2xl font-['DM_Serif_Display'] leading-tight">
+                      <h3 className="text-[#DCF0DC] text-2xl sm:text-3xl font-['DM_Serif_Display'] leading-tight mb-3">
                         {project.title}
                       </h3>
+                      <div className="text-[#DCF0DC] font-medium text-sm flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0 transform">
+                        Összes kép megtekintése <ChevronRight size={18} />
+                      </div>
                     </div>
                   </div>
                 </div>
               </motion.div>
             ))}
-          </Masonry>
-        </ResponsiveMasonry>
+          </div>
+          
+          {/* Visual Hint */}
+          <div className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-12 text-[#DCF0DC]/50 pointer-events-none hidden lg:block">
+             <ChevronRight size={48} className="animate-pulse" />
+          </div>
+        </div>
         
         <div className="mt-16 text-center">
            <motion.button
@@ -135,7 +144,7 @@ export function ReferenceGallery() {
               {/* Image Column */}
               <div className={`${isFullscreen ? 'w-full h-full relative' : 'w-full lg:w-[60%] relative bg-black flex flex-col'}`}>
                 {/* Main Carousel Image */}
-                <div className="relative flex-1 group flex items-center justify-center min-h-[40vh] lg:min-h-0">
+                <div className="relative flex-1 group flex items-center justify-center min-h-[35vh] lg:min-h-0">
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={currentImageIndex}
@@ -145,7 +154,7 @@ export function ReferenceGallery() {
                       transition={{ duration: 0.3 }}
                       src={selectedProject.images[currentImageIndex]}
                       alt={`${selectedProject.title} - Kép ${currentImageIndex + 1}`}
-                      className={`object-contain ${isFullscreen ? 'w-full h-full max-h-screen' : 'w-full h-full max-h-[60vh] lg:max-h-full'}`}
+                      className={`object-contain ${isFullscreen ? 'w-full h-full max-h-screen' : 'w-full h-full max-h-[50vh] lg:max-h-full'}`}
                     />
                   </AnimatePresence>
 
@@ -176,7 +185,7 @@ export function ReferenceGallery() {
                   </button>
 
                   {/* Indicator */}
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 px-4 py-1.5 rounded-full text-white/90 text-sm backdrop-blur-sm font-medium">
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/60 px-4 py-1.5 rounded-full text-white/90 text-sm backdrop-blur-sm font-medium border border-white/10">
                     {currentImageIndex + 1} / {selectedProject.images.length}
                   </div>
                 </div>
@@ -184,31 +193,37 @@ export function ReferenceGallery() {
 
               {/* Text Content Column */}
               {!isFullscreen && (
-                <div className="w-full lg:w-[40%] p-6 sm:p-10 lg:p-12 overflow-y-auto max-h-[50vh] lg:max-h-[90vh] custom-scrollbar flex flex-col items-start bg-gradient-to-b from-[#132a18] to-[#0a1a0e]">
-                  <span className="text-[#DCF0DC]/70 font-medium tracking-widest text-sm uppercase mb-4 block border border-[#DCF0DC]/20 px-3 py-1 rounded-full">
-                    {selectedProject.date}
-                  </span>
-                  <h3 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-3xl sm:text-4xl mb-6">
-                    {selectedProject.title}
-                  </h3>
-                  
-                  <div className="text-[#DCF0DC]/80 space-y-4 text-base sm:text-lg leading-relaxed font-light">
-                    {selectedProject.description.split('\n').map((paragraph, idx) => (
-                      paragraph.trim() && <p key={idx}>{paragraph}</p>
-                    ))}
+                <div className="w-full lg:w-[40%] flex flex-col bg-gradient-to-b from-[#132a18] to-[#0a1a0e] max-h-[50vh] lg:max-h-[90vh]">
+                  {/* Scrollable description area */}
+                  <div className="flex-1 overflow-y-auto custom-scrollbar p-6 sm:p-10 lg:p-12 pb-2">
+                    <span className="inline-block text-[#DCF0DC]/70 font-medium tracking-widest text-xs sm:text-sm uppercase mb-4 border border-[#DCF0DC]/20 px-3 py-1 rounded-full">
+                      {selectedProject.date}
+                    </span>
+                    <h3 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-3xl sm:text-4xl mb-6">
+                      {selectedProject.title}
+                    </h3>
+                    
+                    <div className="text-[#DCF0DC]/80 space-y-4 text-base sm:text-lg leading-relaxed font-light mb-8">
+                      {selectedProject.description.split('\n').map((paragraph, idx) => (
+                        paragraph.trim() && <p key={idx}>{paragraph}</p>
+                      ))}
+                    </div>
                   </div>
 
-                  <button
-                    onClick={() => {
-                      setSelectedProject(null);
-                      setTimeout(() => {
-                        document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
-                      }, 400); // Wait for modal close animation
-                    }}
-                    className="mt-10 sm:mt-auto bg-[#DCF0DC] text-[#132a18] hover:bg-[#DCF0DC]/90 w-full py-4 rounded-xl font-semibold text-lg transition-transform hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    Hasonlót szeretnék
-                  </button>
+                  {/* Sticky Button Area */}
+                  <div className="p-6 sm:p-10 lg:p-12 pt-4 bg-gradient-to-t from-[#0a1a0e] to-transparent shrink-0">
+                    <button
+                      onClick={() => {
+                        setSelectedProject(null);
+                        setTimeout(() => {
+                          document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
+                        }, 400); // Wait for modal close animation
+                      }}
+                      className="bg-[#DCF0DC] text-[#132a18] hover:bg-[#DCF0DC]/90 w-full py-4 rounded-xl font-bold text-lg transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_20px_rgba(220,240,220,0.15)]"
+                    >
+                      Hasonlót szeretnék
+                    </button>
+                  </div>
                 </div>
               )}
             </motion.div>

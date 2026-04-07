@@ -14,23 +14,23 @@ export function AboutSection() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="font-['DM_Serif_Display'] text-[#DCF0DC] text-4xl sm:text-5xl lg:text-6xl mb-8">
-              Szakértelem és<br />Szenvedély
+              Friss tudás,<br />Modern szemlélet
             </h2>
             <div className="space-y-6 text-[#DCF0DC]/80 text-lg leading-relaxed">
               <p>
-                A Grandiflora csapata több mint egy évtizede elkötelezett a prémium kertépítés és kerttervezés mellett. Hiszünk abban, hogy a kert nem csupán egy terület a ház körül, hanem az otthon kiterjesztése, ahol a természet és az épített környezet harmóniát alkot.
+                A Grandiflorát két lelkes, frissen végzett mesterdiplomás szakember – egy kertépítő mérnök és egy növényorvos – alapította. Célunk, hogy a legújabb szakmai tudást és modern megoldásokat vigyük bele minden ránk bízott kertbe.
               </p>
               <p>
-                Minden projektünk egyedi válasz az ügyfeleink igényeire és a terület adottságaira. Legyen szó modern minimál kertről vagy burjánzó angolparkról, a legmagasabb szakmai színvonalat és odafigyelést garantáljuk.
+                Bár fiatal csapat vagyunk, a korábbi sikeres projektjeink is bizonyítják: a mérnöki precizitás, az egyetemi szintű szaktudás és a növények iránti elhivatottság garancia a tartós, prémium minőségre a tervezéstől a teljes kivitelezésig.
               </p>
               <div className="pt-4 grid grid-cols-2 gap-8">
                 <div>
-                  <h4 className="text-3xl font-['DM_Serif_Display'] text-[#DCF0DC] mb-1">10+</h4>
-                  <p className="text-sm uppercase tracking-widest text-[#DCF0DC]/50">Év tapasztalat</p>
+                  <h4 className="text-3xl font-['DM_Serif_Display'] text-[#DCF0DC] mb-1">MSc</h4>
+                  <p className="text-sm uppercase tracking-widest text-[#DCF0DC]/50 mt-1">Kertépítő Mérnök</p>
                 </div>
                 <div>
-                  <h4 className="text-3xl font-['DM_Serif_Display'] text-[#DCF0DC] mb-1">500+</h4>
-                  <p className="text-sm uppercase tracking-widest text-[#DCF0DC]/50">Befejezett projekt</p>
+                  <h4 className="text-3xl font-['DM_Serif_Display'] text-[#DCF0DC] mb-1">MSc</h4>
+                  <p className="text-sm uppercase tracking-widest text-[#DCF0DC]/50 mt-1">Növényorvos</p>
                 </div>
               </div>
             </div>

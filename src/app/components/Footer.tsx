@@ -19,7 +19,7 @@ export function Footer() {
               </h3>
             </div>
             <p className="text-[#DCF0DC]/80 leading-relaxed mb-4 text-sm sm:text-base">
-              Professzionális kertészeti szolgáltatások több mint 10 éves tapasztalattal.
+              Professzionális kertészeti szolgáltatások a legújabb szakmai tudással, egyenesen a kertépítő mérnökök és növényorvosok asztaláról.
             </p>
             <p className="text-[#DCF0DC]/60 text-sm">
               🇬🇧 C1 English Fluency Available
